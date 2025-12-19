@@ -86,7 +86,7 @@ body {
 }
 
 .planet {
-  width: min(25vw, 300px);
+  width: min(40vw, 300px);
   min-width: 120px;
   aspect-ratio: 1/1;
   animation: float 5s ease-in-out infinite;
@@ -96,8 +96,8 @@ body {
 .info-box {
   position: absolute;
   right: 50%;
-  width: min(90vw, 420px);
-  padding: 20px;
+  width: min(40vw, 420px);
+  padding: 2px;
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255,255,255,0.2);
@@ -109,7 +109,7 @@ body {
 
 .info-box h2 {
   font-family: "Orbitron", sans-serif;
-  margin-bottom: 10vh;
+  margin-bottom: (10vh,420);
 }
 
 .planet-section.active .info-box {
