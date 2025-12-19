@@ -86,7 +86,7 @@ body {
 }
 
 .planet {
-  width: min(40vw, 300px);
+  width: min(45vw, 300px);
   min-width: 120px;
   aspect-ratio: 1/1;
   animation: float 5s ease-in-out infinite;
