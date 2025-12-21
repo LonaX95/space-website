@@ -1,0 +1,116 @@
+/* بکگراند صفحه کاملاً یکدست */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background: #010214; /* آبی فضایی روشن‌تر */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e0e0e0;
+}
+
+/* کانتینر کلی */
+.container {
+  position: relative;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  height: 320px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px 30px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(100, 150, 255, 0.15);
+  overflow: visible; /* مهم: فضانورد بالای کارت دیده بشه */
+  box-sizing: border-box;
+}
+
+.astronaut {
+  position: absolute;
+  top: -145px;        /* دست‌ها روی کارت، کل بدن دیده میشه */
+  left: 10%;
+  transform: translateX(-50%);
+  width: 260px;
+  z-index: 5;
+  animation: float 1.5s ease-in-out infinite alternate;
+  padding-bottom: 40px;
+}
+
+@keyframes float {
+  0% { transform: translateX(-50%) translateY(0); }
+  100% { transform: translateX(-50%) translateY(-3px); }
+}
+
+/* متن داخل کارت */
+#text-content {
+  line-height: 1.4;
+  font-size: 16px;
+  text-align: right;
+  direction: rtl;
+  white-space: pre-line;
+  transition: transform 0.6s ease, opacity 0.6s ease opacity 0.6 ease; margin-bottom: 40px;
+}
+
+/* دکمه بعدی / قبلی */
+#next-text {
+  position: absolute;   
+  bottom: 20px;        
+  left: 50%;
+  transform: translateX(-50%);
+  color: #8ab4ff;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;        
+  transition: 0.3s;
+  text-align: right;
+  direction: rtl;
+}
+
+#next-text:hover {
+  text-shadow: 0 0 10px #8ab4ff;
+}
+.creator-bottom {
+  position: absolute;
+  bottom: 30px;
+  left: 75%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #8ab4ff;
+  text-align: center;
+}
+
+/* متن سازنده گوشه کارت */
+.creator {
+  position: absolute;
+  bottom: 20px;
+  right: 15px;
+  font-size: 12px;
+  color: #8ab4ff;
+  font-style: italic;
+}
+
+/* لینک ورود به مدار */
+.enter-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #fff;
+  background: rgba(75, 108, 255, 0.8); /* شفاف و مشخص */
+  box-shadow: 0 0 15px rgba(75, 108, 255, 0.4);
+  transition: 0.3s;
+}
+
+.enter-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(75, 108, 255, 0.6);
+}
