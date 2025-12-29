@@ -1,17 +1,37 @@
-/* بکگراند صفحه کاملاً یکدست */
-body, html {
+/* فونت‌ها */
+@font-face {
+  font-family: "Orbitron", sans-serif;
+  src: url("assets/fonts/Orbitron-Regular.ttf");
+}
+@font-face {
+  font-family: "Exo2", sans-serif;
+  src: url("assets/fonts/Exo2-Regular.ttf");
+}
+@font-face {
+  font-family: "Inter", sans-serif;
+  src: url("assets/fonts/Inter-Regular.ttf");
+}
+
+/* تنظیمات پایه */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
   height: 100%;
-  font-family: Arial, sans-serif;
-  background: #010214; /* آبی فضایی روشن‌تر */
+  font-family: "Inter", sans-serif;
+  background: #010214; /* رنگ فضایی */
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-x: hidden;
   color: #e0e0e0;
 }
 
-/* کانتینر کلی */
+/* کانتینر اصلی کارت */
 .container {
   position: relative;
   width: 80%;
@@ -19,39 +39,32 @@ body, html {
   text-align: center;
 }
 
+/* کارت معرفی */
 .card {
   position: relative;
-  width: 90%;       /* کارت ۹۰٪ عرض صفحه */
-  max-width: 700px; /* حداکثر اندازه */
-  min-width: 300px; /* حداقل اندازه برای موبایل */
-  height: auto;     /* ارتفاع به متن تطبیق پیدا کنه */
-  background: rgba(255, 255, 255, 0.05);
+  width: 100%;
+  max-width: 700px;
+  height: auto;               /* ارتفاع با محتوا تنظیم می‌شود */
+  background: rgba(255,255,255,0.05);
   border-radius: 16px;
-  padding: 20px 30px;
+  padding: 2rem;
   backdrop-filter: blur(8px);
-  box-shadow: 0 0 20px rgba(100, 150, 255, 0.15);
-  overflow: visible;
+  box-shadow: 0 0 20px rgba(100,150,255,0.15);
+  overflow: visible;          /* فضانورد روی کارت دیده بشه */
   box-sizing: border-box;
+  text-align: right;
+  direction: rtl;
 }
 
-/* Media query برای گوشی‌های کوچک */
-@media (max-width: 480px) {
-  .card {
-    width: 95%;
-    padding: 15px 20px;
-    font-size: 14px; /* متن کوچکتر ولی قابل خوندن */
-  }
-}
-
+/* فضانورد */
 .astronaut {
   position: absolute;
-  top: -145px;        /* دست‌ها روی کارت، کل بدن دیده میشه */
+  top: -64%;                  /* بالای کارت */
   left: 10%;
   transform: translateX(-50%);
-  width: 260px;
+  width: 35%;                  /* واکنش‌گرا با صفحه */
   z-index: 5;
   animation: float 1.5s ease-in-out infinite alternate;
-  padding-bottom: 40px;
 }
 
 @keyframes float {
@@ -61,43 +74,31 @@ body, html {
 
 /* متن داخل کارت */
 #text-content {
-  line-height: 1.4;
-  font-size: 16px;
-  text-align: right;
-  direction: rtl;
+  line-height: 1.5;
+  font-size: 1rem;
   white-space: pre-line;
-  transition: transform 0.6s ease, opacity 0.6s ease opacity 0.6 ease; margin-bottom: 40px;
+  margin-bottom: 2rem;
 }
 
-/* دکمه بعدی / قبلی */
+/* دکمه بعدی/قبلی */
 #next-text {
-  position: absolute;   
-  bottom: 20px;        
+  position: absolute;
+  bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
   color: #8ab4ff;
   font-weight: bold;
   cursor: pointer;
-  z-index: 10;        
-  transition: 0.3s;
+  z-index: 10;
   text-align: right;
   direction: rtl;
+  transition: 0.3s;
 }
-
 #next-text:hover {
   text-shadow: 0 0 10px #8ab4ff;
 }
-.creator-bottom {
-  position: absolute;
-  bottom: 30px;
-  left: 75%;
-  transform: translateX(-50%);
-  font-size: 12px;
-  color: #8ab4ff;
-  text-align: center;
-}
 
-/* متن سازنده گوشه کارت */
+/* متن سازنده */
 .creator {
   position: absolute;
   bottom: 20px;
@@ -115,49 +116,42 @@ body, html {
   border-radius: 25px;
   text-decoration: none;
   color: #fff;
-  background: rgba(75, 108, 255, 0.8); /* شفاف و مشخص */
-  box-shadow: 0 0 15px rgba(75, 108, 255, 0.4);
+  background: rgba(75,108,255,0.8);
+  box-shadow: 0 0 15px rgba(75,108,255,0.4);
   transition: 0.3s;
 }
-
 .enter-link:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(75, 108, 255, 0.6);
+  box-shadow: 0 0 20px rgba(75,108,255,0.6);
 }
-@media (max-width: 600px) {
 
-  .container {
-    width: 95%;
-  }
-
+/* Media Queries برای صفحات کوچکتر */
+@media (max-width: 768px) {
   .card {
-    padding: 18px 16px 70px;
-    min-height: 360px;
+    width: 90%;
+    padding: 1.5rem;
   }
-
   #text-content {
-    font-size: 14px;
-    line-height: 1.8;
-    margin-bottom: 55px;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
   }
-
   .astronaut {
-    width: 170px;
-    top: -95px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: -30%;
+    width: 35%;
   }
+}
 
-  #next-text {
-    bottom: 45px;
-    font-size: 13px;
+@media (max-width: 480px) {
+  .card {
+    width: 95%;
+    padding: 1rem;
   }
-
-  .creator-bottom {
-    bottom: 18px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 11px;
+  #text-content {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
   }
-
+  .astronaut {
+    top: -35%;
+    width: 40%;
+  }
 }
