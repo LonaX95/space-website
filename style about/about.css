@@ -23,7 +23,7 @@ body, html {
   position: relative;
   width: 100%;
   max-width: 700px;
-  height: 320px;
+  min-height: 320px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   padding: 20px 30px;
@@ -113,4 +113,41 @@ body, html {
 .enter-link:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px rgba(75, 108, 255, 0.6);
+}
+@media (max-width: 600px) {
+
+  .container {
+    width: 95%;
+  }
+
+  .card {
+    padding: 18px 16px 70px;
+    min-height: 360px;
+  }
+
+  #text-content {
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 55px;
+  }
+
+  .astronaut {
+    width: 170px;
+    top: -95px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #next-text {
+    bottom: 45px;
+    font-size: 13px;
+  }
+
+  .creator-bottom {
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+  }
+
 }

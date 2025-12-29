@@ -12,18 +12,24 @@ for (let i = 0; i < 120; i++) {
   stars.appendChild(s);
 }
 
-// Planet reveal
 const sections = document.querySelectorAll(".planet-section");
 
-window.addEventListener("scroll", () => {
-  sections.forEach(sec => {
-    const top = sec.getBoundingClientRect().top;
-    if (top < window.innerHeight * 0.7) {
-      sec.classList.add("active");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+
+      // اول همه سیاره‌ها غیرفعال
+      sections.forEach(sec => sec.classList.remove("active"));
+
+      // فقط این یکی فعال
+      entry.target.classList.add("active");
     }
   });
+}, {
+  threshold: 0.6
 });
 
+sections.forEach(section => observer.observe(section));
 // Rocket launch
 let launched = false;
 const rocket = document.getElementById("rocket");
