@@ -44,7 +44,7 @@ body, html {
   position: relative;
   width: 100%;
   max-width: 700px;
-  height: auto;               /* ارتفاع با محتوا تنظیم می‌شود */
+  min-height: 300px;               /* ارتفاع با محتوا تنظیم می‌شود */
   background: rgba(255,255,255,0.05);
   border-radius: 16px;
   padding: 2rem;
@@ -52,14 +52,14 @@ body, html {
   box-shadow: 0 0 20px rgba(100,150,255,0.15);
   overflow: visible;          /* فضانورد روی کارت دیده بشه */
   box-sizing: border-box;
-  text-align: right;
+  text-align: center;
   direction: rtl;
 }
 
 /* فضانورد */
 .astronaut {
   position: absolute;
-  top: -64%;                  /* بالای کارت */
+  top: -43%;                  /* بالای کارت */
   left: 10%;
   transform: translateX(-50%);
   width: 35%;                  /* واکنش‌گرا با صفحه */
@@ -78,6 +78,7 @@ body, html {
   font-size: 1rem;
   white-space: pre-line;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 /* دکمه بعدی/قبلی */
@@ -91,7 +92,7 @@ body, html {
   cursor: pointer;
   z-index: 10;
   text-align: right;
-  direction: rtl;
+  direction: 1rem;
   transition: 0.3s;
 }
 #next-text:hover {
