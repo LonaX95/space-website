@@ -63,8 +63,8 @@ body, html {
   top: -80%;                  /* بالای کارت */
   left: 10%;
   transform: translateX(-50%);
-  width: min(50vw, 250px);                  /* واکنش‌گرا با صفحه */
-  max-width: 250px;
+  width: 40vw;                  /* واکنش‌گرا با صفحه */
+  max-width: 300px;
   z-index: 5;
   animation: float 1.5s ease-in-out infinite alternate;
 }
