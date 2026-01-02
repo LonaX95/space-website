@@ -146,7 +146,7 @@ body, html {
 @media (max-width: 480px) {
   .card {
     width: 95%;
-    padding: 1rem;
+    padding: 2.5rem;
   }
   #text-content {
     font-size: 0.9rem;
