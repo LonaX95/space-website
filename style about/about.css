@@ -60,7 +60,7 @@ body, html {
 /* فضانورد */
 .astronaut {
   position: absolute;
-  top: min(-2%, -135px);                  /* بالای کارت */
+  top: min(-10%, -135px);                  /* بالای کارت */
   left: 10%;
   transform: translateX(-50%);
   width: min(25vw, 250px);                  /* واکنش‌گرا با صفحه */
@@ -125,35 +125,4 @@ body, html {
 .enter-link:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px rgba(75,108,255,0.6);
-}
-
-/* Media Queries برای صفحات کوچکتر */
-@media (max-width: 768px) {
-  .card {
-    width: 90%;
-    padding: 1.5rem;
-  }
-  #text-content {
-    font-size: 0.95rem;
-    margin-bottom: 3rem;
-  }
-  .astronaut {
-    top: -25%;
-    width: 35vw;
-  }
-}
-
-@media (max-width: 480px) {
-  .card {
-    width: 95%;
-    padding: 1rem;
-  }
-  #text-content {
-    font-size: 0.9rem;
-    margin-bottom: 4rem;
-  }
-  .astronaut {
-    top: -35%;
-    width: 40vw;
-  }
 }
