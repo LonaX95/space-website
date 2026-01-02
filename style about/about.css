@@ -60,7 +60,7 @@ body, html {
 /* فضانورد */
 .astronaut {
   position: absolute;
-  top: -40%;                  /* بالای کارت */
+  top: -80%;                  /* بالای کارت */
   left: 10%;
   transform: translateX(-50%);
   width: min(50vw, 250px);                  /* واکنش‌گرا با صفحه */
