@@ -1,56 +1,51 @@
-// Stars
-const stars = document.getElementById("stars");
-for (let i = 0; i < 120; i++) {
-  const s = document.createElement("div");
-  s.className = "star";
-  s.style.top = Math.random() * 100 + "%";
-  s.style.left = Math.random() * 100 + "%";
-  const size = Math.random() * 2 + 1;
-  s.style.width = size + "px";
-  s.style.height = size + "px";
-  s.style.animationDuration = Math.random() * 2 + 1 + "s";
-  stars.appendChild(s);
+const canvas = document.getElementById("heartCanvas");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resize();
+window.onresize = resize;
+
+let offset = 0; // برای چرخش نوشته‌ها
+
+// فرمول قلب
+function heartFunction(t) {
+    const x = 16 * Math.sin(t) ** 3;
+    const y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+    return { x, y };
 }
 
-const sections = document.querySelectorAll(".planet-section");
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const scale = 15;
 
-      // اول همه سیاره‌ها غیرفعال
-      sections.forEach(sec => sec.classList.remove("active"));
+    ctx.fillStyle = "rgba(255, 182, 193, 0.7)";
+    ctx.font = "18px Arial";
+    
+  // هاله متن
+    ctx.shadowColor = "rgba(255, 100, 150, 0.6)";
+    ctx.shadowBlur = 15;
 
-      // فقط این یکی فعال
-      entry.target.classList.add("active");
+  ;
+
+    const points = 100; // تعداد نوشته‌ها روی مسیر قلب
+
+    for (let i = 0; i < points; i++) {
+        let t = (i / points) * Math.PI * 2 + offset;
+        const { x, y } = heartFunction(t);
+
+        ctx.fillText("I Love You", centerX + x * scale, centerY + y * scale);
+        // بدون rotate، متن صاف میمونه
     }
-  });
-}, {
-  threshold: 0.6
-});
 
-sections.forEach(section => observer.observe(section));
-// Rocket launch
-let launched = false;
-const rocket = document.getElementById("rocket");
+    offset += 0.003; // سرعت چرخش
 
-window.addEventListener("scroll", () => {
-  if (!launched && window.scrollY > 5) {
-    launched = true;
-    rocket.style.transition = "transform 2s ease-in";
-    rocket.style.transform = "translateY(-120vh)";
-  }
-});
-const shootingStars = document.getElementById("shooting-stars");
+    requestAnimationFrame(draw);
+}
 
-setInterval(() => {
-  const star = document.createElement("div");
-  star.className = "shooting-star";
-  star.style.top = Math.random() * 50 + "%";
-  star.style.left = Math.random() * 100 + "%";
-  shootingStars.appendChild(star);
-
-  setTimeout(() => {
-    star.remove();
-  }, 2500);
-}, 1800);
+draw();
